@@ -7,6 +7,9 @@ const expressLayouts = require('express-ejs-layouts');
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+// define path of static files
+app.use(express.static('./assets'));
+
 // use ejs-layouts  
 app.use(expressLayouts);
 
