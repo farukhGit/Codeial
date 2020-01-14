@@ -1,3 +1,5 @@
 module.exports.homeActionOne = (req, res)=>{
-    return res.end('<h1>Home Controller Action 1</h1>');
+    return res.render('home', {
+        title : 'Home Page'
+    });
 }
