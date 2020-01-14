@@ -50,5 +50,27 @@ module.exports.create = (req, res)=>{
 
 // sign in and create a session for the user
 module.exports.createSession = (req, res)=>{
-    // to do 
+    // check if user exists
+    User.findOne({email : req.body.email}, function(err, user){
+        if(err){
+            console.log('Error finding user.'); return;
+        }
+
+        // if user exists, confirm the password
+        if(user){
+
+            // password match, send to profile page
+            if(user.password == req.body.password){
+                res.cookie('user_id', user.id); 
+                return res.redirect('/users/profile');
+            }else{
+                // password unconfirmed, show message and redirect to sign in page
+                console.log('Incorrect password.');
+                return res.redirect('back');
+            }
+        }else{
+            console.log('User Not Found.');
+            return res.redirect('back');
+        }
+    })
 }
