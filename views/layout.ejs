@@ -4,11 +4,14 @@
             <%= title %>
         </title>
         <link rel="stylesheet" href="/css/layout.css">
+        <%- style %>
     </head>
     <body>
         <%- include('_header'); %>
         <!-- this is where the variable part of different webpages will be rendered -->
         <%- body %>
         <%- include('_footer'); %>
+
+        <%- script %>
     </body>
 </html>
