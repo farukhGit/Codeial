@@ -16,10 +16,12 @@ module.exports.signIn = (req, res) =>{
     });
 }
 
+// sign up and create a document for the user
 module.exports.create = (req, res)=>{
     // to do 
 }
 
+// sign in and create a session for the user
 module.exports.createSession = (req, res)=>{
     // to do 
 }

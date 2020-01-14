@@ -16,17 +16,23 @@ form{
 
 form input {
     width : 80%;
-    margin : 10px auto;
+    margin : 20px auto;
+    box-shadow: 10px 10px 15px 3px black;
+    border : none;
+    height : 30px;  
 }
 
 form input[type="submit"]{
     max-width : 30%;
-    font-size : 1.3em;
+    font-size : 1.2em;
     border : none;
     box-shadow: 10px 10px 20px 3px black;
     background-color : rgba(0, 0, 0, 0.644);
     cursor : pointer;
     font-weight: bold;
+    height: auto;
+    padding : 3px;
+    color : rgba(223, 219, 219, 0.767);
 }
 
 form h5 a{
