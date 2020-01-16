@@ -4,8 +4,10 @@
     <h1>
         Welcome to Home Page
     </h1>
+    <% if(!locals.user){%>
+        <%- include('signup'); %>   
+    <%} %>
     
-    <%- include('signup'); %>   
 </main>
 
     

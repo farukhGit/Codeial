@@ -9,6 +9,13 @@ body{
     color : white;
 }
 
+a{
+    color : white;
+    font-size : 1.3em;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
 header, footer{
     margin-bottom : 40px;
     background-color: rgb(65, 62, 62);
