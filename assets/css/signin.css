@@ -25,6 +25,7 @@ form input[type="submit"]{
     font-size : 1.2em;
     border-radius : 2em;
     color : rgb(190, 187, 187);
+    cursor : pointer;
 }
 
 #forgetpassword{

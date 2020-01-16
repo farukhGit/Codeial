@@ -7,12 +7,18 @@ module.exports.profile = (req, res)=>{
 }
 
 module.exports.signUp = (req, res)=>{
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('signup', {
         title : 'Codeial | Sign Up'
     });
 }
 
 module.exports.signIn = (req, res) =>{
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('signin', {
         title : "Codeial | Sign In"
     });
