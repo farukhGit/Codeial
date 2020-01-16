@@ -1,0 +1,30 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding : 25px;
+    font-size : 1.3em;
+
+    input{
+        width : 30%;
+        margin : 15px 0;
+        height : 30px;
+        border-radius: 1.5em;
+        padding : 0 8px;
+    }
+
+    input[type="submit"]{
+        width : 10%;
+    }
+
+    h5{
+        a{
+            color : white;
+            text-decoration: none;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

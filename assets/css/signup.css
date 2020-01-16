@@ -1,34 +1,19 @@
-form{
-    box-sizing: border-box;
-    width : 40%;
-    margin : 20px auto;
-    padding : 20px;
-    background-color : rgba(94, 91, 91, 0.856);
-    border : none;
-    box-shadow: 10px 10px 20px 5px black;
-    border-radius : 2em;
-    display : flex;
-    flex-direction : column;
-    justify-content: center;
-    align-items : center;
-    font-size : 1.3em;
-}
-
-form input {
-    width : 80%;
-    margin : 10px auto;
-}
-
-form input[type="submit"]{
-    max-width : 30%;
-    font-size : 1.3em;
-    border : none;
-    box-shadow: 10px 10px 20px 3px black;
-    background-color : rgba(0, 0, 0, 0.644);
-    cursor : pointer;
-    font-weight: bold;
-}
-
-form h5 a{
-    color : black;
-}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  font-size: 1.3em; }
+  form input {
+    width: 30%;
+    margin: 15px 0;
+    height: 30px;
+    border-radius: 1.5em;
+    padding: 0 8px; }
+  form input[type="submit"] {
+    width: 10%; }
+  form h5 a {
+    color: white;
+    text-decoration: none; }
+    form h5 a:hover {
+      text-decoration: underline; }
