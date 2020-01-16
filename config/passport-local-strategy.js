@@ -37,3 +37,21 @@ passport.deserializeUser((id, done)=>{
         return done(null, user);
     });
 });
+
+passport.checkAuthentication = (req, res, next)=>{
+    // if user is signed in , pass the req to the next function     
+    if(req.isAuthenticated())
+        return next();
+    
+    return res.redirect('/users/sign-in');
+}
+
+passport.setAuthenticatedUser = (req, res, next)=>{
+    if(req.isAuthenticated()){
+        // req.user contains the current signed in user from the session cookie and we're sending it to the locals for the views
+        res.locals.user = req.user;
+    }
+    return next();
+}
+
+module.exports = passport;
