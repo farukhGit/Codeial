@@ -4,9 +4,7 @@
     <h1>
         Welcome to Codeial | Home Page
     </h1>
-    <% if(!locals.user){%>
-        <%- include('signup'); %>   
-    <%}else{%>
+    <!-- <% if(locals.user){%>  -->
         <section id="feed-posts">
             <h4>Posts</h4>
             <form action="/posts/create" id="new-post-form" method="POST">
@@ -16,55 +14,12 @@
             <div id="posts-container">
                 <ul>
                     <% for ( post of posts) {%>
-                        <li style="border: 1px solid white; border-radius: 1em; margin : 3px; padding: 5px;">
-                            <p>
-                                <%= post.content %>
-                                <% if(locals.user && locals.user.id == post.user.id){%>
-                                    <small>
-                                        <a style="color: white; font-weight: bold; margin-left: 30px;" href="/posts/destroy/<%= post.id %>">X</a>
-                                    </small>
-                                <%} %>   
-                            </p>
-                            <small>
-                                <p>
-                                    <%= post.user.username %>
-                                </p>
-                            </small>
-                            <div class="post-comments" style="border: 2px solid blue; border-radius : 1em;">
-                                <% if(locals.user) {%>
-                                   
-                                    <form action="/comments/create" method="POST">
-                                        <input type="text" name="content" placeholder="Add Comment..." required>
-                                        <input type="hidden" name="post" value="<%= post._id %>">
-                                        <input type="submit" value="Add Comment">
-                                    </form>    
-                                    
-                                <%}%>
-
-                                <div class="post-comments-list">
-                                    <ul id="post-comments-<%= post._id %>">
-                                        <% for(comment of post.comments){%>
-                                            <li>
-                                                <p>
-                                                    <%= comment.content %>
-                                                    <br>
-                                                    <small>
-                                                        <%= comment.user.username %>
-                                                    </small>
-                                                    <hr>
-                                                </p>
-                                            </li>
-                                            <%} %>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>    
+                        <%- include('_post'); %>
                     <%}%>
                 </ul>
             </div>
         </section>
-    <%} %>
-    
+    <!-- <% } %> -->
 </main>
 
     

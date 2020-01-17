@@ -22,3 +22,18 @@ module.exports.create = (req, res)=>{
         }
     })
 }
+
+module.exports.deleteComment = (req, res)=>{
+    Comment.findById(req.params.id, function(err, comment){
+        if(comment.user == req.user.id){
+            let postid = comment.post;
+
+            Post.findByIdAndUpdate(postid, {$pull : {comments : req.params.id}}, (err, post)=>{
+                return res.redirect('back');
+            })
+                   
+        }else{
+            return res.redirect('back');
+        }
+    })
+}
