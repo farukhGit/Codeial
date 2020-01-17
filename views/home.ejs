@@ -4,7 +4,7 @@
     <h1>
         Welcome to Codeial | Home Page
     </h1>
-    <!-- <% if(locals.user){%>  -->
+    <% if(locals.user){%> 
         <section id="feed-posts">
             <h4>Posts</h4>
             <form action="/posts/create" id="new-post-form" method="POST">
@@ -19,7 +19,12 @@
                 </ul>
             </div>
         </section>
-    <!-- <% } %> -->
+    <% }else{%>
+        <section id="home-default">
+            <%- include('signin'); %>
+            <%- include('signup'); %> 
+        </section>   
+    <%} %>
 </main>
 
     

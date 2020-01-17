@@ -1,3 +1,8 @@
+main > h1{
+    background-color : rgba(39, 30, 30, 0.616);
+    margin : 0;
+}
+
 #feed-posts{
     margin : 10px auto;
     display : flex;
@@ -15,5 +20,39 @@
         font-size : 1.1em;
         margin : 10px 0;  
         cursor : pointer;
+    }
+}
+
+#home-default{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    
+    #sign-up-form{
+        margin : 0;
+        width : 50%;
+        background-color : rgba(39, 30, 30, 0.616);
+
+        input{
+            width : 50%;
+        }
+
+        input[type="submit"]{
+            width : 30%;
+        }
+    }
+
+    #sign-in-form{
+        margin : 0 auto;
+        width : 50%;
+
+        input{
+            width : 50%;
+        }
+
+        input[type="submit"]{
+            width : 30%;
+        }
     }
 }
