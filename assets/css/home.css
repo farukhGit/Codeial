@@ -8,8 +8,7 @@
 #new-post-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-size: 1.1em; }
+  align-items: center; }
   #new-post-form input {
     font-size: 1.1em;
     margin: 10px 0;
