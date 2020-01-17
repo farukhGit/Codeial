@@ -13,6 +13,20 @@
                 <textarea name="content" id="new-post-content" cols="30" rows="6" placeholder="Enter Comment"></textarea>
                 <input type="submit" value="Post">
             </form>
+            <div id="posts-container">
+                <ul>
+                    <% for ( post of posts) {%>
+                        <li>
+                            <%= post.content %>
+                            <small>
+                                <p>
+                                    <%= post.user.username %>
+                                </p>
+                            </small>
+                        </li>    
+                    <%}%>
+                </ul>
+            </div>
         </section>
     <%} %>
     

@@ -3,7 +3,7 @@ const router = express.Router();
 const homeController = require('../controllers/home_controller');
 
 
-router.get('/', homeController.homeActionOne);
+router.get('/', homeController.home);
 router.use('/users', require('./user_routes.js'));
 router.use('/posts', require('./posts_routes'));
 
