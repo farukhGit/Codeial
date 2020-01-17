@@ -1,0 +1,19 @@
+#feed-posts{
+    float: right;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    margin : 0px 25px;
+}
+
+#new-post-form{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+
+    input{
+        font-size : 1.1em;
+        margin : 10px 0;  
+        cursor : pointer;
+    }
+}

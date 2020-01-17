@@ -6,6 +6,14 @@
     </h1>
     <% if(!locals.user){%>
         <%- include('signup'); %>   
+    <%}else{%>
+        <section id="feed-posts">
+            <h4>Posts</h4>
+            <form action="" id="new-post-form" method="POST">
+                <textarea name="content" id="new-post-content" cols="30" rows="6" placeholder="Enter Comment"></textarea>
+                <input type="submit" value="Post">
+            </form>
+        </section>
     <%} %>
     
 </main>
