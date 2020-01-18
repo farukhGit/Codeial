@@ -10,6 +10,16 @@ module.exports.profile = (req, res)=>{
     })
 }
 
+module.exports.update = (req, res)=>{
+    if(req.user.id == req.params.id){
+        User.findByIdAndUpdate(req.params.id, {username : req.body.name, email : req.body.email}, function(err, user){
+            return res.redirect('back');
+        })
+    }else{
+        res.status(401).send('Unauthorized');
+    }
+}
+
 module.exports.about = (req, res)=>{
         return res.render('about', {
             title : "Codeial | About User",
