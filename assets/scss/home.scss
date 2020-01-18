@@ -56,3 +56,12 @@ main > h1{
         }
     }
 }
+
+#home-container{
+    display: flex;
+    justify-content: space-around;
+
+    #user-friends{
+        width : 20%;
+    }
+}

@@ -1,6 +1,8 @@
 <header>
     <h3>
-        <%= title %>
+        <a href="/" style="color: white; text-decoration: none;">
+            <%= title %>
+        </a>
     </h3>
 
     <ul class="header-menu">
@@ -19,11 +21,6 @@
                 <a href="/users/sign-out">Log Out</a>
             </li>
             <%}else{%>
-                <li>
-                    <a href="/">
-                        Home
-                    </a>
-                </li>
                 <li>
                     <a href="/users/sign-in"> Sign In </a>
                 </li>

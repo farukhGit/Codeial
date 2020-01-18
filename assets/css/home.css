@@ -38,3 +38,9 @@ main > h1 {
       width: 50%; }
     #home-default #sign-in-form input[type="submit"] {
       width: 30%; }
+
+#home-container {
+  display: flex;
+  justify-content: space-around; }
+  #home-container #user-friends {
+    width: 20%; }

@@ -1,37 +1,41 @@
 <link rel="stylesheet" href="/css/home.css">
 
 <main>
-    <h1>
-        Welcome to Codeial | Home Page
-    </h1>
     <% if(locals.user){%> 
-        <section id="feed-posts">
-            <h4>Posts</h4>
-            <form action="/posts/create" id="new-post-form" method="POST">
-                <textarea name="content" id="new-post-content" cols="30" rows="6" placeholder="Enter Comment" required></textarea>
-                <input type="submit" value="Post">
-            </form>
-            <div id="posts-container">
-                <ul>
-                    <% for ( post of posts) {%>
-                        <%- include('_post'); %>
-                    <%}%>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="user-friends">
-            <h4>Friends</h4>
-            <% for ( u of all_users ){%>
-                <p>
-                    <a href="/users/profile/<%= u.id %>" style="color:white;">
-                        <%= u.username %>
-                    </a>
-                </p>
-            <% } %>
-        </section>
+        <h1>
+            Welcome to Codeial | <%= locals.user.username %>
+        </h1>
+        <div id="home-container">
+            <section id="feed-posts">
+                <h4>Posts</h4>
+                <form action="/posts/create" id="new-post-form" method="POST">
+                    <textarea name="content" id="new-post-content" cols="30" rows="6" placeholder="Enter Comment" required></textarea>
+                    <input type="submit" value="Post">
+                </form>
+                <div id="posts-container">
+                    <ul>
+                        <% for ( post of posts) {%>
+                            <%- include('_post'); %>
+                        <%}%>
+                    </ul>
+                </div>
+            </section>
+            <section id="user-friends">
+                <h4>Friends</h4> <hr>
+                <% for ( u of all_users ){%>
+                    <p>
+                        <a href="/users/profile/<%= u.id %>" style="color:white;">
+                            <%= u.username %>
+                        </a>
+                    </p>
+                <% } %>
+            </section>
+        </div>
 
     <% }else{%>
+        <h1>
+            Welcome to Codeial
+        </h1>
         <section id="home-default">
             <%- include('signin'); %>
             <%- include('signup'); %> 
