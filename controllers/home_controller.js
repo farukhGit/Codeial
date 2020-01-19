@@ -1,7 +1,7 @@
 const Post = require('../models/post');
 const User = require('../models/user');
-module.exports.home = (req, res)=>{
 
+module.exports.home = (req, res)=>{
     try{
         // populate the user of each post
         Post.find({})

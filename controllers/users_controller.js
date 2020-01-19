@@ -22,7 +22,7 @@ module.exports.update = (req, res)=>{
 
 module.exports.about = (req, res)=>{
         return res.render('about', {
-            title : "Codeial | About User",
+            title : "Codeial | About",
         });
 }
 
@@ -39,6 +39,7 @@ module.exports.signIn = (req, res) =>{
     if(req.isAuthenticated()){
         return res.redirect('/users/profile');
     }
+
     return res.render('signin', {
         title : "Codeial | Sign In"
     });
