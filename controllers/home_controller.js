@@ -5,6 +5,7 @@ module.exports.home = (req, res)=>{
     try{
         // populate the user of each post
         Post.find({})
+        .sort('-createdAt')
         .populate('user')
         .populate({
             path : 'comments',
