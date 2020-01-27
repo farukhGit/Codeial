@@ -8,13 +8,14 @@ passport.use(new LocalStrategy({
     usernameField : 'email',
     passReqToCallback : true
 }, function(req, email, password, done){
+    // find the user and establish identity 
     User.findOne({email : email}, function(err, user){
         if(err){
             req.flash('error', err);
             return done(err);
         }
         if(!user || user.password != password){
-            req.flash('error' , 'Invalid Username / Password');
+            req.flash('error' , 'Invalid Username or Password');
             return done(null, false);
         }
 
@@ -43,7 +44,6 @@ passport.checkAuthentication = (req, res, next)=>{
     // if user is signed in , pass the req to the next function     
     if(req.isAuthenticated())
         return next();
-    
     
     return res.redirect('/users/sign-in');
 }

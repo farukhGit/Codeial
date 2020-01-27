@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const fs = require('fs');
+const path = require('path');
 
 module.exports.profile = (req, res)=>{
 
@@ -10,12 +12,41 @@ module.exports.profile = (req, res)=>{
     })
 }
 
-module.exports.update = (req, res)=>{
+module.exports.update = async (req, res)=>{
     if(req.user.id == req.params.id){
-        User.findByIdAndUpdate(req.params.id, {username : req.body.name, email : req.body.email}, function(err, user){
-            return res.redirect('back');
-        })
+        try {
+            let user = await User.findById(req.params.id);
+            User.uploadedAvatar(req, res, function(err){
+                if(err){
+                    console.log('********** Multer Error    **********/n', err);    
+                    return;
+                }
+                user.name = req.body.name;
+                user.email = req.body.email;
+
+                if(req.file){
+
+                    if(user.avatar){
+                        fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+                    }
+
+                    // saving the path of upload file into the avatar field of user
+                    user.avatar = User.avatarPath + '/' + req.file.filename;        
+                }
+                user.save();
+                return res.redirect('back');
+            });
+            // if(req.user.id == req.params.id){
+            // User.findByIdAndUpdate(req.params.id, {username : req.body.name, email : req.body.email}, function(err, user){
+            //     req.flash('success', 'Successfully Updated User Information.');
+            //     return res.redirect('back');
+            // });
+        } catch (error) {
+            console.log('error : ', error);
+            return;
+        }
     }else{
+        req.flash('error', 'Unauthorized');
         res.status(401).send('Unauthorized');
     }
 }
@@ -75,8 +106,14 @@ module.exports.create = (req, res)=>{
 }
 
 module.exports.createSession = (req, res)=>{
-    req.flash('success', 'Log In Successful');
-    return res.redirect('/');
+    try {
+        req.flash('success', 'Log In Successful');
+        return res.redirect('/');
+    } catch (error) {
+        console.log('Error : ', err);
+        return;
+    }
+    
 }
 
 module.exports.destroySession = (req, res)=>{    

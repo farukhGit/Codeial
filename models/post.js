@@ -16,7 +16,11 @@ const postSchema = mongoose.Schema({
             type : mongoose.Schema.Types.ObjectId,
             ref : 'Comment'
         }   
-    ]
+    ],
+    name : {
+        type : mongoose.Schema.Types.String,
+        ref : 'User'
+    }
 }, { 
     timestamps : true
 });

@@ -30,7 +30,7 @@ app.set('views', './views');
 // mongo store is used to store the session cookie in the db
 app.use(session({
     name : 'codeial',
-    secret : 'secretkey',
+    secret : 'SECRET_KEY',
     saveUninitialized : false,
     resave : false,
     cookie : {
@@ -63,6 +63,7 @@ app.set('layout extractScripts', true);
 
 // use express router
 app.use('/', require('./routes/index'));
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 app.listen(port, function(err){
     if(err){

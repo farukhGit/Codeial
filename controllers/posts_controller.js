@@ -1,20 +1,23 @@
 const Post = require('../models/post');
 const Comment = require('../models/comments');
+const User = require('../models/user');
 
 module.exports.create = async (req, res)=>{
     try {
         let post = await Post.create({
             content : req.body.content,
-            user : req.user._id
+            user : req.user._id,
+            name : req.body.name
         });
+
 
         if(req.xhr){
             return res.status(200).json({
-                data : {
+                newData : {
                     post : post
                 },
                 message : 'Post Created!'
-            })
+            });
         }
 
         req.flash('success', 'Post published!');
@@ -38,11 +41,11 @@ module.exports.destroy = async (req, res)=>{
         
         if(req.xhr){
             return res.status(200).json({
-                data : {
+                newData : {
                     post_id : req.params.id
                 },
                 message : 'Post deleted'
-            })
+            });
         }
 
         req.flash('success', 'Post and comments deleted!');
