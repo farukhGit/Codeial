@@ -1,11 +1,15 @@
 const passport = require('passport');
+
 const JwtStrategy = require('passport-jwt').Strategy;   
 const ExtractJwt = require('passport-jwt').ExtractJwt;  
-const User = require('../models/user'); // we need user model to establish the identity
+
+// we need User model to establish the identity
+const User = require('../models/user'); 
 
 let opts = {
     jwtFromRequest : ExtractJwt.fromAuthHeaderAsBearerToken,
-    secretOrKey : 'secret',
+    secretOrKey : 'codeial',
+    // do not need below two keys for now //
     // issuer : 'accounts.examplesoft.com',
     // audience : 'yoursite.net'
 }
