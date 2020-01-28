@@ -23,17 +23,22 @@ module.exports.create = (req, res)=>{
     })
 }
 
-module.exports.deleteComment = (req, res)=>{
-    Comment.findById(req.params.id, function(err, comment){
+module.exports.deleteComment = async (req, res)=>{
+    try {
+        let comment = await Comment.findById(req.params.id);
+            
         if(comment.user == req.user.id){
             let postid = comment.post;
-
-            Post.findByIdAndUpdate(postid, {$pull : {comments : req.params.id}}, (err, post)=>{
+            comment.remove();
+            
+            await Post.findByIdAndUpdate(postid, {$pull : {comments : req.params.id}}, (err, post)=>{
                 return res.redirect('back');
-            })
-                   
+            });
         }else{
             return res.redirect('back');
         }
-    })
+    } catch (error) {
+        req.flash('error', 'Can\'t delete this comment.');
+        console.log('Cannot delete comment!', error);   
+    }
 }
