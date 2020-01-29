@@ -13,6 +13,8 @@ const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 const passportJWT = require('./config/passport-jwt-strategy');  // import passport-jwt strategy for authentication
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
+const mailer = require('nodemailer');
+
 app.use(sassMiddleware({
     src : './assets/scss',
     dest : './assets/css',
