@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 main > h1{
     background-color : rgba(39, 30, 30, 0.616);
     margin : 0;
@@ -9,16 +13,30 @@ main > h1{
     flex-direction: column;
     align-items: center;
     margin : 0px 25px;
+    width : 70%;
 }
 
 #new-post-form{
     display: flex;
     flex-direction : column;
     align-items: center;
+    width : 95%;
+
+    textarea{
+        width : 70%;
+        border-radius : 2em;
+        padding : 20px;
+
+        &:focus{
+            outline : none;
+        }
+    }
 
     input{
         font-size : 1.1em;
         margin : 10px 0;  
+        width : 5em;
+        border-radius : 1em;
         cursor : pointer;
     }
 }
@@ -63,5 +81,54 @@ main > h1{
 
     #user-friends{
         width : 20%;
+
+        p{
+            display: flex;
+            justify-content: first baseline;
+            align-items: center;
+            margin : 10px 5px;
+            padding : 0px 10px;
+            
+            img{
+                border-radius: 50%;
+                height: 30px;
+                widows: 30px;
+                overflow: hidden;
+                margin-right : 25px;
+            }
+
+            a{
+                text-decoration: none;
+                font-size : 1.2em;
+            }
+        }
+    }
+}
+
+#posts-container{
+    width : 80%;
+    ul{
+        width : 96%;
+        padding : 0;
+        margin : 0;
+
+        li{
+            width : 100%;
+            
+            small{
+                    p{
+                        display: flex;
+                        align-items: center;
+                        margin : 10px 0px;
+
+                    img{
+                        width : 30px;
+                        height : 30px;
+                        border-radius : 50%;
+                        margin-right : 10px;
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,21 +1,36 @@
-<li id="post-<%= post._id %> ">
-    <p>
-        <%= post.content %>
-        <% if(locals.user && locals.user.id == post.user.id){%>
-            <small>
-                <a class="delete-post-btn" href="/posts/destroy/<%= post.id %>">X</a>
-            </small>
-        <%} %>   
-    </p>
+<link rel="stylesheet" href="/css/posts.css">
+
+<li id="post-<%= post._id %>">
     <small>
         <p>
+            <img src="<%= post.user.avatar %>" alt="<%= post.user.name %>" width="30" height="30">
             <%= post.name %>
         </p>
     </small>
+    <div id="post-content">
+        <p>
+            <%= post.content %>
+        </p>
+        
+            <div id="post-reactions">
+                <a class="like-post-btn" href="/posts/destroy/<%= post.id %>">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a class="share-post-btn" href="/posts/destroy/<%= post.id %>">
+                    <i class="fas fa-share-alt"></i>
+                </a>
+                <% if(locals.user && locals.user.id == post.user.id){%>
+                    <a class="delete-post-btn" href="/posts/destroy/<%= post.id %>">
+                        <i class="far fa-trash-alt"></i>
+                    </a>
+                <%} %>
+            </div>
+           
+    </div>
     <div class="post-comments">
         <% if(locals.user) {%>
            
-            <form action="/comments/create" method="POST">
+            <form action="/comments/create" method="POST" id="comment-form">
                 <input type="text" name="content" placeholder="Add Comment..." required>
                 <input type="hidden" name="post" value="<%= post._id %>">
                 <input type="submit" value="Add Comment">

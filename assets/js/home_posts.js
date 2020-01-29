@@ -25,17 +25,18 @@
     // method to create a post in DOM
     let newPostDom = function(post){
         return $(`<li id="post-${post._id} ">
-                    <p>
-                        ${post.content}
-                            <small>
-                                <a class="delete-post-btn" href="/posts/destroy/${post._id}">X</a>
-                            </small>
-                    </p>
                     <small>
                         <p>
-                            ${post.name}
+                            ${ post.name }
                         </p>
                     </small>
+                    <p>
+                        ${post.content}
+                        
+                        <a class="delete-post-btn" href="/posts/destroy/${ post.id }">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </p>
             
                     <div class="post-comments">
 

@@ -1,0 +1,29 @@
+.post-comments-list{
+    ul{
+        li{
+            small{
+                display : flex;
+                justify-content: flex-start;
+                align-items : center;
+
+                img{
+                    border-radius : 50%;
+                    width : 25px;
+                    height : 25px;
+                    margin-right: 10px;
+                }
+
+                a{
+                    text-decoration : none;
+                    margin-left : auto;
+                    font-size : 1.4em;
+                    color : white;
+                }
+            }
+            p{
+                padding-left : 40px;
+                margin : 0;
+            }
+        }
+    }
+}

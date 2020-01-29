@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; }
+
 main > h1 {
   background-color: rgba(39, 30, 30, 0.616);
   margin: 0; }
@@ -7,15 +10,25 @@ main > h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0px 25px; }
+  margin: 0px 25px;
+  width: 70%; }
 
 #new-post-form {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  width: 95%; }
+  #new-post-form textarea {
+    width: 70%;
+    border-radius: 2em;
+    padding: 20px; }
+    #new-post-form textarea:focus {
+      outline: none; }
   #new-post-form input {
     font-size: 1.1em;
     margin: 10px 0;
+    width: 5em;
+    border-radius: 1em;
     cursor: pointer; }
 
 #home-default {
@@ -44,3 +57,36 @@ main > h1 {
   justify-content: space-around; }
   #home-container #user-friends {
     width: 20%; }
+    #home-container #user-friends p {
+      display: flex;
+      justify-content: first baseline;
+      align-items: center;
+      margin: 10px 5px;
+      padding: 0px 10px; }
+      #home-container #user-friends p img {
+        border-radius: 50%;
+        height: 30px;
+        widows: 30px;
+        overflow: hidden;
+        margin-right: 25px; }
+      #home-container #user-friends p a {
+        text-decoration: none;
+        font-size: 1.2em; }
+
+#posts-container {
+  width: 80%; }
+  #posts-container ul {
+    width: 96%;
+    padding: 0;
+    margin: 0; }
+    #posts-container ul li {
+      width: 100%; }
+      #posts-container ul li small p {
+        display: flex;
+        align-items: center;
+        margin: 10px 0px; }
+        #posts-container ul li small p img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          margin-right: 10px; }

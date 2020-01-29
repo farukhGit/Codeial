@@ -1,16 +1,17 @@
-<li>
-    <p>
-        <%= comment.content %>
-        <br>
-        <small>
-            <%= comment.user.username %>
+<link rel="stylesheet" href="/css/comment.css">
+<li >
+    <small>
+        <img src="<%= comment.user.avatar %>" alt="<%= comment.user.username %>">
+        <%= comment.user.username %>
             <% if(locals.user.id == comment.user.id){%>
-                <a href="/comments/delete-comment/<%= comment.id %>" style="color: red;">
-                    X
+                <a href="/comments/delete-comment/<%= comment.id %>">
+                    <i class="far fa-trash-alt"></i>
                 </a>    
-            <%} %>
-            
-        </small>
-        <hr>
-    </p>
+            <% } %>
+    </small>
+                                    <br>
+        <p>
+            <%= comment.content %>
+        </p>
+                                     <hr>
 </li>
