@@ -1,26 +1,25 @@
 const Comment = require('../models/comments');
 const Post = require('../models/post')
+const commentsMailer = require('../mailers/comments_mailer');
 
-module.exports.create = (req, res)=>{
-    Post.findById(req.body.post, function(err, post){
+module.exports.create = async (req, res)=>{
+    let post = await Post.findById(req.body.post);
         
         if(post){
-            Comment.create({
+            let comment = await Comment.create({
                 content : req.body.content,
                 post : req.body.post,
                 user : req.user._id
-            }, function(err, comment){
-                if(err){
-                    throw err;
-                }
-
-                post.comments.push(comment);
-                post.save();
-
-                res.redirect('/');
             });
+
+            post.comments.push(comment);
+            post.save();
+            comment = await comment.populate('user', 'username email').execPopulate(); 
+            commentsMailer.newComment(comment);
+
+
+            res.redirect('/');
         }
-    })
 }
 
 module.exports.deleteComment = async (req, res)=>{
